@@ -1,9 +1,6 @@
 import cv2
 import numpy as np
-import matplotlib.pyplot as plt
 import time
-import os
-import glob
 
 from PIL import Image, ImageDraw, ImageFilter
 
@@ -43,7 +40,7 @@ def lens_distortion(pil_img, exp, scale):
     return pil_img
 
 #마스크 씌워질 이미지 빨간색 처리
-def red_processing(pil_img, thre_red = 200, thre_rest_color = 100):
+def red_processing(pil_img, thre_red = 80, thre_rest_color = 50):
     arr_img = np.array(pil_img)
     indices = np.where(arr_img[:,:,2]>thre_red)
     
